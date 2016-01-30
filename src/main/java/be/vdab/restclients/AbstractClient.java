@@ -14,8 +14,7 @@ abstract class AbstractClient implements SystemStatusClient {
     @Override
     public SystemStatus getSystemStatus() {
         try {
-            SystemStatus status = restTemplate.getForObject(URL, SystemStatus.class);
-            return status;
+            return restTemplate.getForObject(URL, SystemStatus.class);
         } catch (Exception ex) {
             throw new NoSystemStatusFoundException();
         }
