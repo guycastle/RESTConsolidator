@@ -1,5 +1,6 @@
 package be.vdab.web;
 
+import be.vdab.exceptions.NoSystemStatusFoundException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class ErrorController {
     private static final String ERROR_REDIRECT = "redirect:/error";
 
-    @ExceptionHandler(Exception.class)
+    @ExceptionHandler(NoSystemStatusFoundException.class)
     String redirectToErrorView() {
         return ERROR_REDIRECT;
     }
