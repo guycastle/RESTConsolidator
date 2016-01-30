@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
  */
 @ControllerAdvice
 public class ErrorController {
-    private static final String ERROR_REDIRECT = "redirect:/error";
+    private static final String ERROR_VIEW = "error";
 
     @ExceptionHandler(NoSystemStatusFoundException.class)
     String redirectToErrorView() {
-        return ERROR_REDIRECT;
+        return ERROR_VIEW;
     }
 }
