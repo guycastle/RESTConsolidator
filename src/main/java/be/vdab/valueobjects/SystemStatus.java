@@ -21,6 +21,9 @@ public class SystemStatus {
     private String builtOn;
     private boolean up;
 
+    public SystemStatus() {
+    }
+
     public SystemStatus(String id, String name, String description, String moreInfo, String version, String seafileVersion, String environment, String builtOn, boolean up) {
         this.id = id;
         this.name = name;

@@ -21,17 +21,15 @@ public class SystemStatusController {
 
     @Autowired
     public SystemStatusController(APIEngineClient apiEngineClient, DigitalVaultClient digitalVaultClient) {
-        clients = new ArrayList<SystemStatusClient>();
+        clients = new ArrayList<>();
         clients.add(apiEngineClient);
         clients.add(digitalVaultClient);
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    String getStatuses() {
-        return "hello";
-    /*SystemStatusesResource getStatuses() {
+    SystemStatusesResource getStatuses() {
         SystemStatusesResource systemStatusesResource = new SystemStatusesResource();
         clients.forEach(client -> systemStatusesResource.addSystemStatus(client.getSystemStatus()));
-        return systemStatusesResource;*/
+        return systemStatusesResource;
     }
 }
