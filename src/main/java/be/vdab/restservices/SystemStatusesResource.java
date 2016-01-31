@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created on 30/01/2016 at 14:37.
  */
-@XmlRootElement
+@XmlRootElement(name = "SystemStatuses")
 @XmlAccessorType(XmlAccessType.FIELD)
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 class SystemStatusesResource extends ResourceSupport {
@@ -29,6 +29,7 @@ class SystemStatusesResource extends ResourceSupport {
     }
 
     SystemStatusesResource(Iterable<SystemStatus> systemStatuses, EntityLinks entityLinks) {
+        systemStatuses.forEach(systemStatus -> this.systemStatuses.add(systemStatus));
         this.add(entityLinks.linkToCollectionResource(SystemStatus.class));
     }
 }
