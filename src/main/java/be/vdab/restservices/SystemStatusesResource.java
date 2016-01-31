@@ -29,11 +29,6 @@ class SystemStatusesResource extends ResourceSupport {
     }
 
     SystemStatusesResource(Iterable<SystemStatus> systemStatuses, EntityLinks entityLinks) {
-        systemStatuses.forEach(systemStatus -> {
-            this.systemStatuses.add(systemStatus);
-            this.add(entityLinks.linkToSingleResource(SystemStatus.class, systemStatus.getId())
-                    .withRel("SystemId:" + systemStatus.getId()));
-        });
         this.add(entityLinks.linkToCollectionResource(SystemStatus.class));
     }
 }
