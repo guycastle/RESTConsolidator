@@ -12,6 +12,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.hateoas.EntityLinks;
 import org.springframework.hateoas.ExposesResourceFor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ import java.util.Properties;
  * Created on 30/01/2016 at 14:24.
  */
 @RestController
-@RequestMapping(path = "/system")
+@RequestMapping(path = "/system", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
 @ExposesResourceFor(SystemStatus.class)
 class SystemStatusController {
     private final List<SystemStatusClient> clients;
