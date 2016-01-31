@@ -8,4 +8,6 @@ import be.vdab.valueobjects.SystemStatus;
 public interface SystemStatusClient {
 
     SystemStatus getSystemStatus();
+
+    SystemStatusClient setURL(String URL);
 }
