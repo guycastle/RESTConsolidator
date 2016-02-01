@@ -5,7 +5,9 @@ package be.vdab.web;
 
 import be.vdab.restclients.CreateRESTClientBeans;
 import be.vdab.restservices.CreateRESTControllerBeans;
+import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.Filter;
@@ -37,5 +39,12 @@ public class Initializer extends AbstractAnnotationConfigDispatcherServletInitia
     @Override
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
         registration.setInitParameter("dispatchOptionsRequest", "true");
+    }
+
+    @Override
+    protected DispatcherServlet createDispatcherServlet(WebApplicationContext servletAppContext) {
+        DispatcherServlet dispatcherServlet = new DispatcherServlet(servletAppContext);
+        dispatcherServlet.setThrowExceptionIfNoHandlerFound(true);
+        return dispatcherServlet;
     }
 }
